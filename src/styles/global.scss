@@ -1,0 +1,180 @@
+/*---------------------------------------------------------------------------*
+ * SF Mono
+ *---------------------------------------------------------------------------*/
+
+/** Bold */
+
+@font-face {
+  font-family: 'New York';
+  font-weight: 700;
+  src: url('fonts/NewYorkExtraLarge-Heavy.otf');
+}
+
+@font-face {
+  font-family: 'SF Mono';
+  font-weight: 700;
+  src: url('https://sf.abarba.me/SFMono-Bold.otf');
+}
+
+/** Bold Italic */
+@font-face {
+  font-family: 'SF Mono';
+  font-weight: 700;
+  font-style: italic;
+  src: url('https://sf.abarba.me/SFMono-BoldItalic.otf');
+}
+
+/** Heavy */
+@font-face {
+  font-family: 'SF Mono';
+  font-weight: 800;
+  src: url('https://sf.abarba.me/SFMono-Heavy.otf');
+}
+
+/** Heavy Italic */
+@font-face {
+  font-family: 'SF Mono';
+  font-weight: 800;
+  font-style: italic;
+  src: url('https://sf.abarba.me/SFMono-HeavyItalic.otf');
+}
+
+/** Light */
+@font-face {
+  font-family: 'SF Mono';
+  font-weight: 200;
+  src: url('/fonts/SFMono-Light.otf');
+}
+
+/** Light Italic */
+@font-face {
+  font-family: 'SF Mono';
+  font-weight: 200;
+  font-style: italic;
+  src: url('https://sf.abarba.me/SFMono-LightItalic.otf');
+}
+
+/** Medium */
+@font-face {
+  font-family: 'SF Mono';
+  font-weight: 500;
+  src: url('https://sf.abarba.me/SFMono-Medium.otf');
+}
+
+/** Medium Italic */
+@font-face {
+  font-family: 'SF Mono';
+  font-weight: 500;
+  font-style: italic;
+  src: url('https://sf.abarba.me/SFMono-MediumItalic.otf');
+}
+
+/** Regular */
+@font-face {
+  font-family: 'SF Mono';
+  font-weight: 400;
+  src: url('https://sf.abarba.me/SFMono-Regular.otf');
+}
+
+/** Regular Italic */
+@font-face {
+  font-family: 'SF Mono';
+  font-weight: 400;
+  font-style: italic;
+  src: url('https://sf.abarba.me/SFMono-RegularItalic.otf');
+}
+
+/** Semibold */
+@font-face {
+  font-family: 'SF Mono';
+  font-weight: 600;
+  src: url('https://sf.abarba.me/SFMono-Semibold.otf');
+}
+
+/** Semibold Italic */
+@font-face {
+  font-family: 'SF Mono';
+  font-weight: 600;
+  font-style: italic;
+  src: url('https://sf.abarba.me/SFMono-SemiboldItalic.otf');
+}
+
+/***** reset *****/
+
+html {
+  background-color: $background;
+  box-sizing: border-box;
+  font-size: $font-size;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul,
+a {
+  color: $color;
+  margin: 0;
+  padding: 0;
+  font-family: 'SF Mono', monospace;
+  font-size: $font-size;
+  font-weight: 100;
+  line-height: 1.3em;
+  word-wrap: break-word;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 1rem 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+a {
+  text-decoration: underline;
+
+  &:hover {
+    font-weight: 600;
+  }
+}
+
+input {
+  background: $background;
+  border: none;
+  color: $color;
+  // border: 1px solid #ccc;
+  // border-radius: 4px;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 0;
+  margin: 0;
+  &:focus {
+    outline-width: none;
+    outline: none;
+  }
+}
