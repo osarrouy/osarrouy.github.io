@@ -262,6 +262,7 @@
       }
 
       if (!window.ethereum.selectedAddress) {
+        window.ethereum.enable()
         error = ERROR_METAMASK_NOT_ENABLED
         disabled = false
         return
