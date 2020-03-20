@@ -5,6 +5,8 @@
 
   import Contact from './commands/Contact.svelte'
   import Curriculum from './commands/Curriculum.svelte'
+  import PGP from './commands/PGP.svelte'
+
 
   import Help from './commands/Help.svelte'
   import Tip from './commands/Tip.svelte'
@@ -48,6 +50,9 @@
         break
       case 'help':
         commands = [...commands, { input, component: Help }]
+        break
+      case 'pgp':
+        commands = [...commands, { input, component: PGP }]
         break
       case 'tip':
         commands = [...commands, { input, component: Tip, props: { amount: _input._[1] } }]
