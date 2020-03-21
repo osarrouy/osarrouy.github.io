@@ -1,21 +1,14 @@
 <script>
   const commands = [
-    { name: 'help', description: 'display this screen' },
-    { name: 'clear', description: 'clear commands history' },
-    { name: 'contact', description: 'display contacts' },
-    { name: 'curriculum', description: 'display curriculum' },
-    { name: 'onion', description: 'display the .onion address of this website' },
-    { name: 'pgp', description: 'display PGP key' },
-    { name: 'tip <amount>', description: 'tip me of <amount> DAIs' },
+    { name: 'help',         description: 'display this help' },
+    { name: 'clear',        description: 'clear screen' },
+    { name: 'contact',      description: 'display contacts' },
+    { name: 'curriculum',   description: 'display curriculum' },
+    { name: 'onion',        description: 'display the .onion address of this website' },
+    { name: 'pgp',          description: 'display PGP public key' },
+    { name: 'tip <amount>', description: 'tip <amount> DAIs' },
   ]
 </script>
-
-<style lang="scss">
-  table {
-    border-spacing: $spacing 0;
-    margin-left: -#{$spacing};
-  }
-</style>
 
 <table>
   {#each commands as command}

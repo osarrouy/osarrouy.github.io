@@ -4,6 +4,9 @@
   // const pattern = ['', '.', '..', '...', '..', '.']
 
   export let stopped = false
+  export let _class  = ''
+
+  export { _class as class }
   let spinner = ''
   let index = 0
 
@@ -23,4 +26,4 @@
   }
 </style>
 
-<span>{spinner}</span>
+<span class={_class}>{spinner}</span>

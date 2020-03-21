@@ -1,5 +1,13 @@
-$accent: #ff08ff;
-$background: #175500;
-$color: rgb(105, 243, 105);
-$font-size: 14px;
+// colors inspired from Challenger Deep theme
+// see https://github.com/challenger-deep-theme/vim
+$asphalt: #1e1c31;
+$cyan: #aaffe4;
+$green: #95ffa4;
+$purple: #c991e1;
+$red: #ff8080;
+
+$accent: $cyan;
+$background: $asphalt;
+$color: $green;
+$font-size: 13px;
 $spacing: 1rem;
