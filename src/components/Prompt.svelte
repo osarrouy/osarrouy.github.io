@@ -1,18 +1,13 @@
-<script>
-  export let command = ''
-</script>
-
 <style lang="scss">
-  section.zsh {
+  section.stdin {
     margin: $spacing 0;
-    white-space: pre;
-    span.hostname{
-      color: $cyan;
+    span {
+      color: $accent;
       font-weight: 600;
     }
   }
 </style>
   
-<section class="zsh">
-  <span class="hostname">amnesia@osarrouy.xyz</span>&nbsp;$&nbsp;<slot />
+<section class="stdin">
+  <span>amnesia@osarrouy.xyz</span>&nbsp;$&nbsp;<slot />
 </section>

@@ -20,7 +20,7 @@
   setInterval(spin, 300)
 </script>
 
-<style>
+<style lang="scss">
   span {
     font-size: 1.2rem;
   }

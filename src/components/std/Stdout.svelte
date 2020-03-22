@@ -6,10 +6,16 @@
   export let prompt  = false
 </script>
 
+<style lang="scss">
+  section.stdout {
+    margin: $spacing 0;
+  }
+</style>
+
 {#if !hidden}
-  <div class="stdout">
-    {#if prompt}<span>» </span>{/if}
+  <section class="stdout">
+    {#if prompt}»{/if}
     <slot />
     {#if loading}<Spinner />{/if}
-  </div>
+  </section>
 {/if}

@@ -19,7 +19,7 @@
     history = []
   }
 
-  const keydown = event => {
+  const handleKeydown = event => {
     switch (event.key) {
       case 'Control':
         event.preventDefault()
@@ -36,7 +36,7 @@
     }
   }
 
-  const keyup = event => {
+  const handeKeyup = event => {
     switch (event.key) {
       case 'Control':
         event.preventDefault()
@@ -51,19 +51,11 @@
 	})
 </script>
 
-<style lang="scss">
-  section.tty {
-    margin: $spacing 0;
-  }
-</style>
-
-<svelte:window on:keydown={keydown} on:keyup={keyup}  />
-{#each history as command, i}
+<svelte:window on:keydown={handleKeydown} on:keyup={handeKeyup}  />
+{#each history as command}
     <Prompt>
       {command.raw}
     </Prompt>
-    <section class="tty">
-      <svelte:component this={command.component} bind:processing let:command on:clear={clear} />
-    </section>
+    <svelte:component this={command.component} bind:processing let:command on:clear={clear} />
 {/each}
 <Zsh disabled={processing} on:command={cmd} />

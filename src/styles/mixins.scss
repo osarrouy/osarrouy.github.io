@@ -1,7 +1,7 @@
 @import './animations.scss';
 
-
 @mixin flicker {
+  background: transparentize($background, 0.85);
   content: ' ';
   display: block;
   position: absolute;
@@ -9,7 +9,6 @@
   left: 0;
   bottom: 0;
   right: 0;
-  background: transparentize($background, 0.85);
   opacity: 0;
   z-index: 2;
   pointer-events: none;
@@ -17,6 +16,9 @@
 }
 
 @mixin scanlines {
+  background: linear-gradient(transparentize($background, 1) 50%, transparentize(darken($background, 10), 0.75) 50%),
+  linear-gradient(90deg, transparentize(#ff0000, 0.94), transparentize(#00ff00, 0.98), transparentize(#0000ff, 0.94));
+  background-size: 100% 3px, 4px 100%;
   content: ' ';
   display: block;
   position: fixed;
@@ -24,9 +26,6 @@
   left: 0;
   bottom: 0;
   right: 0;
-  background: linear-gradient(transparentize($background, 1) 50%, transparentize(darken($background, 10), 0.75) 50%),
-    linear-gradient(90deg, transparentize(#ff0000, 0.94), transparentize(#00ff00, 0.98), transparentize(#0000ff, 0.94));
   z-index: 2;
-  background-size: 100% 3px, 4px 100%;
   pointer-events: none;
 }

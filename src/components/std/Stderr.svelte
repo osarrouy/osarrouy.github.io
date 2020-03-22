@@ -6,10 +6,17 @@
   export let prompt  = false
 </script>
 
+<style lang="scss">
+  section.stderr {
+    color: $red;
+    margin: $spacing 0;
+  }
+</style>
+
 {#if !hidden}
-  <div class="stderr">
-    {#if prompt}<span>» </span>{/if}
+  <section class="stderr">
+    {#if prompt}»{/if}
     <slot />
     {#if loading}<Spinner />{/if}
-  </div>
+  </section>
 {/if}

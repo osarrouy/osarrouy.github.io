@@ -93,7 +93,7 @@
 <style lang="scss">
   .autocomplete {
     span {
-      margin-right: 1rem;
+      margin-right: $spacing;
     }
   }
 </style>

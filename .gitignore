@@ -1,4 +1,7 @@
+# npm
 /node_modules/
-/public/build/
 package-lock.json
+# build
+/public/build/
+# macOS shit
 .DS_Store

@@ -3,9 +3,9 @@
 
   main {
     margin: 0;
-    min-height: 100vh;
-    padding: 2rem;
     max-width: 740px;
+    min-height: 100vh;
+    padding: #{2 * $spacing};
 
     &:after {
       @include flicker;
