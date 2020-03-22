@@ -56,6 +56,6 @@
     <Prompt>
       {command.raw}
     </Prompt>
-    <svelte:component this={command.component} bind:processing let:command on:clear={clear} />
+    <svelte:component this={command.component} {command} bind:processing on:clear={clear} />
 {/each}
 <Zsh disabled={processing} on:command={cmd} />

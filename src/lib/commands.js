@@ -26,7 +26,6 @@ export const Commands = {
   list: () => {
     const map = (cmds) => {
       return Object.keys(cmds).reduce((result, cmd) => {
-        console.log(cmd)
         result.push(cmd)
         return result
       }, [])

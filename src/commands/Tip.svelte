@@ -1,15 +1,25 @@
 <script>
-  import Output           from '../components/Output.svelte'
-  import { DAI, Numbers } from '../lib/_index.js'
-  import { onMount }      from 'svelte'
+  import { Stderr, Stdout } from '/components/std/_index.js'
+  import { DAI, Numbers }   from '/lib/_index.js'
+  import { onMount }        from 'svelte'
 
-  export let props
-  export let running = true
+  export let command
+  export let processing
+
+  processing  = true
   
-  let amount  = Numbers.toFixed(props.amount)
-  let loading = true
-  let stderr  = null
-  let stdout  = 'loading some stuffs ...'
+  let amount      = Numbers.toFixed(command.argv._[1])
+  let interrupted = false
+  let loading     = true
+  let stderr      = null
+  let stdout      = 'checking some stuffs ...'
+
+  $: {
+    if (!interrupted && !processing) {
+      interrupted = true
+      exit()
+    }
+  }
 
   const ERROR_INVALID_AMOUNT         = "Invalid amount. Use e.g. 'tip 25.75'."
   const ERROR_METAMASK_NOT_INSTALLED = 'Metamask is not installed in your browser. Too bad.'
@@ -19,8 +29,8 @@
   const ERROR_UNSIGNED               = 'You renounced signing. You skinflint.'
 
   const exit = () => {
-    loading = false
-    running = false
+    loading    = false
+    processing = false
   }
 
   const validate = async () => {
@@ -54,15 +64,14 @@
   }
 
   onMount(async () => {
-    running = true
-
     try {
       if (await validate()) {
         stdout   = 'please sign transaction in Metamask'
         const tx = await DAI.tip(amount)
         stdout   = 'waiting for tx to be minted'
         await tx.wait()
-        stdout   = 'Just received ' + props.amount + ' DAI. Thanks bro!'
+        loading = false
+        stdout  = 'Just received ' + command.argv._[1] + ' DAI. Thanks bro!'
       } else {
         exit()
       }
@@ -75,9 +84,13 @@
           stderr = e.message
       }
     }
-
     exit()
   })
 </script>
 
-<Output {loading} {stderr} {stdout} />
+<Stdout hidden={stderr} {loading} prompt>
+  {stdout}
+</Stdout>
+<Stderr hidden={!stderr}>
+  {stderr}
+</Stderr>

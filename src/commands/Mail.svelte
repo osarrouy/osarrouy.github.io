@@ -4,14 +4,14 @@
 
   export let processing
 
-  processing  = true
+  processing      = true
 
-  let error   = null
+  let error       = null
   let interrupted = false
-  let from    = ''
-  let message = ''
-  let step    = 0
-  let subject = ''
+  let from        = ''
+  let message     = ''
+  let step        = 0
+  let subject     = ''
 
   $: {
     if (!interrupted && !processing) {
