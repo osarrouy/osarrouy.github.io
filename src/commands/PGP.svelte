@@ -1,3 +1,8 @@
+<script>
+  import { Stdout } from '/components/std/_index.js'
+</script>
+
+<Stdout>
 <pre>
 -----BEGIN PGP PUBLIC KEY BLOCK-----
 
@@ -52,3 +57,4 @@ W14G6eza6Vf6zdgHOUJfig==
 =k039
 -----END PGP PUBLIC KEY BLOCK-----
 </pre>
+</Stdout>

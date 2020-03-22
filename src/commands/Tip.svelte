@@ -60,7 +60,7 @@
       if (await validate()) {
         stdout   = 'please sign transaction in Metamask'
         const tx = await DAI.tip(amount)
-        stdout   = 'waiting for tx ' + tx.hash + ' to be minted'
+        stdout   = 'waiting for tx to be minted'
         await tx.wait()
         stdout   = 'Just received ' + props.amount + ' DAI. Thanks bro!'
       } else {

@@ -1,18 +1,18 @@
 <script>
-  import minimist from 'minimist'
-	import { createEventDispatcher } from 'svelte';
-	const emit = createEventDispatcher();
+  import Prompt                    from '/components/Prompt.svelte'
+  import { Commands }              from '/lib/_index.js'
+  import minimist                  from 'minimist'
+  import { createEventDispatcher } from 'svelte';
 
-  export let prompt
-  export let commands = []
   export let disabled = false
-  export let _class   = ''
-  export   { _class as class}
 
+  let commands    = Commands.list()
   let history     = []
   let stdin       = ''
   let suggestions = []
   let rewind      = 0
+
+	const emit = createEventDispatcher();
 
   const focus = (element) => {
     element.focus()
@@ -28,11 +28,7 @@
   }
 
   const spawn = () => {
-    emit('command', {
-      argv: parse(),
-      raw:  stdin
-    });
-
+    emit('command', { argv: parse(), raw: stdin })
     history = [...history, stdin]
     stdin   = ''
     rewind  = 0
@@ -66,48 +62,49 @@
   }
 
   const handleKeydown = event => {
-    switch (event.key) {
-      case 'Tab':
-        event.preventDefault()
-        suggestions = []
-        autocomplete()
-        break
-      case 'Enter':
-        event.preventDefault()
-        suggestions = []
-        spawn()
-        break
-      case 'ArrowUp':
-        event.preventDefault()
-        suggestions = []
-        backward()
-        break
-      case 'ArrowDown':
-        event.preventDefault()
-        suggestions = []
-        forward()
-        break
+    if (!disabled) {
+      switch (event.key) {
+        case 'Tab':
+          event.preventDefault()
+          suggestions = []
+          autocomplete()
+          break
+        case 'Enter':
+          event.preventDefault()
+          suggestions = []
+          spawn()
+          break
+        case 'ArrowUp':
+          event.preventDefault()
+          suggestions = []
+          backward()
+          break
+        case 'ArrowDown':
+          event.preventDefault()
+          suggestions = []
+          forward()
+          break
+      }
     }
+    
   }
 </script>
 
-
 <style lang="scss">
-  section.tty {
-    display: flex;
+  .autocomplete {
+    span {
+      margin-right: 1rem;
+    }
   }
 </style>
 
-<svelte:window on:keydown={handleKeydown} />
-
 {#if !disabled}
-  <section class="tty {_class}">
-    <svelte:component this={prompt} />
-    <input bind:value={stdin} type="text" use:focus />
-  </section>
-  <section class="suggestions">
+  <Prompt>
+    <input bind:value={stdin} type="text" use:focus on:keydown={handleKeydown} />
+  </Prompt>
+  <section class="autocomplete">
     {#each suggestions as suggestion}
-      <span class="space-right">{suggestion}</span>
+      <span>{suggestion}</span>
     {/each}
   </section>
 {/if}

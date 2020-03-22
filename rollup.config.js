@@ -4,6 +4,13 @@ import commonjs from "@rollup/plugin-commonjs";
 import livereload from "rollup-plugin-livereload";
 import { terser } from "rollup-plugin-terser";
 import auto from "svelte-preprocess";
+import json from '@rollup/plugin-json';
+import rootImport from 'rollup-plugin-root-import'
+
+// import includePaths from 'rollup-plugin-includepaths';
+
+
+
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -13,9 +20,24 @@ export default {
     sourcemap: true,
     format: "iife",
     name: "app",
-    file: "public/build/bundle.js"
+    file: "public/build/bundle.js",
+    globals: {
+      'url': 'url',
+      'net': 'net',
+      'util': 'util$2',
+      'punycode': 'punycode$1',
+      'crypto': 'crypto$1',
+      'buffer': 'buffer',
+    }
+
   },
   plugins: [
+    rootImport({
+      root: `${__dirname}/src`,
+      useInput: 'prepend',
+      extensions: ['.js', '.svelte', '.scss'],
+    }),
+    // includePaths({paths: ['src', 'src'], extensions: ['.js', '.scss', '.svelte']}) ,
     svelte({
       // enable run-time checks when not in production
       dev: !production,

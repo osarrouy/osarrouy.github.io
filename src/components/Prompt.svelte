@@ -1,20 +1,18 @@
+<script>
+  export let command = ''
+</script>
+
 <style lang="scss">
-  span.prompt {
+  section.zsh {
+    margin: $spacing 0;
     white-space: pre;
-    font-weight: 600;
-
-    span.username{
-      color: $cyan;
-    }
-
     span.hostname{
       color: $cyan;
-    }
-
-    span.at {
-      color: $cyan;
+      font-weight: 600;
     }
   }
 </style>
   
-<span class="prompt"><span class="username">amnesia</span><span class="at">@</span><span class="hostname">osarrouy.xyz</span>&nbsp;$&nbsp;</span>
+<section class="zsh">
+  <span class="hostname">amnesia@osarrouy.xyz</span>&nbsp;$&nbsp;<slot />
+</section>

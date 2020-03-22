@@ -1,4 +1,6 @@
 <script>
+  import { Stdout } from '/components/std/_index.js'
+
   const contacts = [
     {
       name: "email",
@@ -20,14 +22,17 @@
       handle: "@osarrouy",
       url: "https://twitter.com/osarrouy"
     }
-  ];
+  ]
 </script>
 
-<template lang="pug">
-  table.contacts
-    +each('contacts as contact')
-      tr.contact
-        td {contact.name}
-        td 
-          a(href="{contact.url}" target="_blank") {contact.handle}
-</template>
+
+<Stdout>
+  <table>
+    {#each contacts as contact}
+      <tr>
+        <td>{contact.name}</td>
+        <td><a href="{contact.url}" target="_blank">{contact.handle}</a></td>
+      </tr>
+    {/each}
+  </table>
+</Stdout>

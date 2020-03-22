@@ -166,7 +166,7 @@ a {
   }
 }
 
-input {
+input, textarea {
   background: $background;
   border: none;
   color: $color;
@@ -178,6 +178,7 @@ input {
   padding: 0;
   line-height: 1.3em;
   margin: 0;
+  resize: none;
   &:focus {
     outline-width: none;
     outline: none;
@@ -197,6 +198,9 @@ pre {
   margin-right: $spacing;
 }
 
+.space-top {
+  margin-top: $spacing;
+}
 .space-left {
   margin-left: $spacing;
 }
