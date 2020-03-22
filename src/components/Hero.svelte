@@ -13,16 +13,16 @@
 </script>
   
 <style lang="scss">
-  h1 {
-    margin-top: 0;
+  p {
+    margin: 1rem 0;
   }
 </style>
 
 <section>
   <Typewriter cascade cursor={done ? false : '#95ffa4'} on:done={handleDone} interval={15}>
-    <!-- <h1># Hello, world</h1>
+    <h1># Hello, world</h1>
     <p>My name is Olivier Sarrouy. I am a freelance researcher and web3 dev.</p>
     <p>Type 'help' to see a list of available commands.</p>
-    <p>======</p> -->
+    <p>======</p>
   </Typewriter>
 </section>
