@@ -1,14 +1,13 @@
-import { Clear, Contact, Curriculum, Email, Help, Pgp, Tip } from '/commands/_index.js'
+import { About, Clear, Contact, Help, Mail, Pgp, Tip } from '/commands/_index.js'
 
 export const COMMANDS = {
   'help':       { component: Help,       description: 'display this help message' },
+  'about':      { component: About,      description: 'display the story of my life' },
   'clear':      { component: Clear,      description: 'clear screen' },
   'contact':    { component: Contact,    description: 'display contacts' },
-  'curriculum': { component: Curriculum, description: 'display curriculum' },
-  'email':      { component: Email,      description: 'shout me an email' },
+  'mail':       { component: Mail,       description: 'shout me an email' },
   'pgp':        { component: Pgp,        description: 'display PGP public key' },
   'tip':        { component: Tip,        description: 'tip <amount> DAIs', params: '<amount>' },
-
 }
 
 export const EMAILJS = {
