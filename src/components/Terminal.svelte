@@ -47,7 +47,10 @@
   }
   
   afterUpdate(() => {
-		window.scrollTo(0, document.body.scrollHeight)
+    const iOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform);
+    if (!iOS) {
+		  window.scrollTo(0, document.body.scrollHeight)
+    }
 	})
 </script>
 
